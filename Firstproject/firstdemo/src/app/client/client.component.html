@@ -1,0 +1,13 @@
+<p>client works!</p>
+<h1>HTTP client</h1>
+
+<div>
+   
+
+    <li *ngfor="let post of httpResponce">
+        <a href="{{post.path}}">
+            <span style="font-size: 20px;text-align: center;">{{post.title}}
+            </span>
+        </a>
+    </li>
+</div>

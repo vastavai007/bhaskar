@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="forminput">
+        <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata)">
+            <label for="fname">First name<span style="color: red;">*</span></label>
+            <input type="text" name="employee_name" placeholder="Name" formControlName="employee_name">
+            <br><br>
+            <label for="lname">Salary<span style="color: red;">*</span>:</label>
+            <input type="number" name="employee_salary" placeholder="Salary" formControlName="employee_salary">
+            <br><br>
+            <label for="lname">Age:</label>
+            <input type="number" name="employee_age" placeholder="Age" formControlName="employee_age">
+            <br><br>
+            <label for="lname">Prfile Image:</label>
+            <input type="file" name="profile_image" placeholder="Image" formControlName="profile_image">
+            <br><br>
+        </form>
+        <button (click)="onClickSubmit(formdata)">{{isEdit ? 'Update' : 'Save'}}</button>
+    </div>
+
+    <div class="table">
+        <table id="customers">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Salary</th>
+                    <th>Age</th>
+                    <th>profile image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableData">
+                    <td>{{item.employee_name}}</td>
+                    <td>{{item.employee_salary}}</td>
+                    <td>{{item.employee_age}}</td>
+                    <td>{{item.profile_image}}</td>
+                    <td>
+                        <button (click)="edit(item)">Edit</button>
+                        <button (click)="delete(item)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

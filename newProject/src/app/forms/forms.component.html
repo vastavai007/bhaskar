@@ -1,0 +1,56 @@
+<p style="border: 0ch;">forms </p>
+<div >
+<form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)"  >
+   
+ 
+    <label from="bloodgroup" > bloodgroup </label>
+    <input type="text" name="bloodgroup" class="from-control" formControlName = "bloodgroup" >
+ 
+   
+
+ 
+   <label from="homeplace" > homeplace </label>
+   <input type="text" name="homeplace" class="from-control" formControlName = "homeplace" >
+
+
+
+ 
+   <label from="pincode" > pincode </label>
+   <input type="text" name="pincode" class="from-control" formControlName = "pincode"  >
+
+
+
+</form>
+<button (click)="onClickSubmit(formdata.value)"> submit
+
+</button>
+</div>
+<!-- <p> textbox result is: {{fromvalue?.bloodgroup}}</p>
+<p> textbox result is: {{fromvalue?.homeplace}}</p>
+<p> textbox result is: {{fromvalue?.pincode}}</p> -->
+ 
+<hr>
+<div>
+    
+    <table style="width:100%">
+<thead>
+    <tr>
+
+    
+        <th> bloodgroup</th>
+        <th>homeplace </th>
+        <th> pincode</th>
+    </tr>
+      
+     </thead>
+     <tbody>
+        <tr *ngFor="let item of fromArray">
+            <td>{{item.bloodgroup}}</td>
+            <td>{{item.homeplace}}</td>
+            <td>{{item.pincode}}</td>
+            <td><button (click)="edit(item)">Edit</button></td>
+        </tr>
+    </tbody>
+
+</table>
+</div>

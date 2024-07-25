@@ -1,0 +1,37 @@
+<p>home works!</p>
+
+<p>prataic work</p>
+  
+  <h1>{{firstname}}</h1>
+<button (click)="chngename()"> chngename</button>
+
+
+<p ngif="isneeded">balu</p>
+<p ngif="!isneeded">bhaskar</p>
+<h2>ngFor directive</h2> 
+<!-- <ul> 
+   <li *ngfor="let index of list">
+      {{index}} 
+   </li>
+</ul> -->
+
+<h2>ngSwitch directive</h2>
+<ul [ngSwitch]="logInName">
+    <li *ngSwitchCase="'user'">
+        <p>User is logged in..</p>
+    </li>
+    <li *ngSwitchCase="'admin'">
+        <p>admin is logged in</p>
+    </li>
+    <li *ngSwitchDefault>
+        <p>Please choose login name</p>
+    </li>
+</ul>
+
+<p [ngStyle]="isneeded ? {'color': 'blue', 'font-size': '14px'} : {'color': 'red', 'font-size': '30px'}">
+    paragraph style is applied using ngStyle
+</p>
+
+
+ 
+

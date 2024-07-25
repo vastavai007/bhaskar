@@ -1,0 +1,107 @@
+<p>partice works!</p>
+
+<h1>{{firstname}}</h1>
+
+<button (click)="chnageName()">Change Name</button>
+
+<br>
+
+<input type="text" (input)="inputMethod($event)" [(ngModel)]="inputValue">
+
+
+<p *ngIf="isNeeded">balu</p>
+
+<p *ngIf="!isNeeded">bhaskar</p>
+
+<h2>ngFor directive</h2>
+<ul>
+    <li *ngFor="let index of list">
+        {{index}}
+    </li>
+</ul>
+
+
+<h2>ngSwitch directive</h2>
+<ul [ngSwitch]="logInName">
+    <li *ngSwitchCase="'user'">
+        <p>User is logged in..</p>
+    </li>
+    <li *ngSwitchCase="'admin'">
+        <p>admin is logged in</p>
+    </li>
+    <li *ngSwitchDefault>
+        <p>Please choose login name</p>
+    </li>
+</ul>
+
+<p>{{isNeeded ? 'Balu' : 'Bhasker'}}</p>
+
+
+<p [ngStyle]="isNeeded ? {'color': 'blue', 'font-size': '14px'} : {'color': 'red', 'font-size': '30px'}">
+    paragraph style is applied using ngStyle
+</p>
+
+
+<div>
+        <ng-template ngFor let-item [ngForOf]="Fruits" let-i="index">
+            <p>{{i}}</p>
+        </ng-template>
+    <p *ngFor="let item of Fruits;let i =index">{{i}}-{{item}}</p>
+</div>  
+
+
+<hr>
+
+<h1>Forms</h1><br>
+
+<div>
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata)">
+        <input type="text" name="Name" placeholder="Name" formControlName="name">
+        <br />
+        <input type="text" name="lastName" placeholder="lastName" formControlName="lastname">
+        <br />
+        <input type="text" name="mobileNumber" placeholder="mobileNumber" formControlName="mobilenumber">
+        <br />
+    </form>
+    <input type="submit" value="Click here" (click)="onClickSubmit(formdata)">
+</div>
+<p> Textbox result is: {{formvalue?.name}} </p>
+<p> Textbox result is: {{formvalue?.lastname}} </p>
+<p> Textbox result is: {{formvalue?.mobilenumber}} </p>
+
+{{formvalue | json}}
+
+<hr>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>mobileNumber</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of fromArray">
+            <td>{{item.name}}</td>
+            <td>{{item.lastname}}</td>
+            <td>{{item.mobilenumber}}</td>
+            <td><button (click)="edit(item)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<hr>
+<h1>HTTP client</h1>
+
+<div>
+    <li *ngFor="let post of httpResponce">
+        <a href="{{post.path}}">
+            <span style="font-size: 20px;text-align: center;">{{post.title}}
+            </span>
+        </a>
+    </li>
+</div>
